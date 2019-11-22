@@ -21,7 +21,7 @@ public class PrincipalLab extends javax.swing.JFrame {
      */
     public PrincipalLab() {
         initComponents();
-
+        
         this.setLocationRelativeTo(null);
         lista_bebidas.add(new Bebida("rt1", "Patito", "7Down", 45, 10, "Nacional", 200192, 20, 100, new Date()));
         lista_bebidas.add(new Bebida("rt2", "Patos", "Koka", 35, 0, "No Nacional", 205192, 20, 100, new Date()));
@@ -39,7 +39,7 @@ public class PrincipalLab extends javax.swing.JFrame {
         lista_bebidas.add(new Bebida("rt14", "Desma", "LocuraFresa", 45, 10, "Nacional", 1100192, 20, 100, new Date()));
         lista_bebidas.add(new Bebida("rt15", "Patio", "24/7", 45, 10, "Nacional", 208192, 20, 100, new Date()));
         DefaultTableModel m = (DefaultTableModel) jt_inventario.getModel();
-
+        
         for (int i = 0; i < lista_bebidas.size(); i++) {
             lista_bebidas.get(i).getColorantes().add(new Colorante("Azul-4"));
             lista_bebidas.get(i).getColorantes().add(new Colorante("Rojo-69"));
@@ -54,7 +54,7 @@ public class PrincipalLab extends javax.swing.JFrame {
             m.addRow(newRow1);
             jt_inventario.setModel(m);
         }
-
+        
     }
 
     /**
@@ -114,6 +114,11 @@ public class PrincipalLab extends javax.swing.JFrame {
         pm_crud.add(jm_modificar);
 
         jm_eliminar.setText("Eliminar");
+        jm_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jm_eliminarActionPerformed(evt);
+            }
+        });
         pm_crud.add(jm_eliminar);
 
         jMenuItem3.setText("jMenuItem3");
@@ -419,51 +424,51 @@ public class PrincipalLab extends javax.swing.JFrame {
         if (cb_coloranteVerde.isSelected()) {
             c5 = new Colorante("Verde-420");
         }
-
+        
         double precio = Double.parseDouble(tf_precio.getText());
         int cantidad = Integer.parseInt(tf_cantidad.getText());
         Date fecha_ven = dc_fechaVencimiento.getDate();
-
+        
         for (int i = 0; i < lista_bebidas.size(); i++) {
             if (lista_bebidas.get(i).getCodigo().equals(codigo)) {
                 JOptionPane.showMessageDialog(this, "El Codigo Ya Existe En una Bebida");
             } else {
-
+                
                 lista_bebidas.add(new Bebida(codigo, nomMarca, nomBebida, ozAzucar,
                         porcentaje_alcohol, nacio, numLote, precio, cantidad, fecha_ven));
-
+                
                 bebida_actual = lista_bebidas.get(lista_bebidas.size() - 1);
-
+                
                 break;
             }
         }
-
+        
         bebida_actual.getColorantes().add(c1);
-
+        
         bebida_actual.getColorantes().add(c2);
-
+        
         bebida_actual.getColorantes().add(c3);
-
+        
         bebida_actual.getColorantes().add(c4);
-
+        
         bebida_actual.getColorantes().add(c5);
-
+        
         String colorantes = "";
-
+        
         for (int i = 0; i < bebida_actual.getColorantes().size(); i++) {
-            System.out.println("dentro");
+            
             if (bebida_actual.getColorantes().get(i) != null) {
                 colorantes += "" + bebida_actual.getColorantes().get(i) + "\n";
             }
         }
-
+        
         Object[] newRow = {codigo, nomMarca, nomBebida, ozAzucar,
             porcentaje_alcohol, nacio, numLote, colorantes, precio, cantidad, fecha_ven
         };
-
+        
         model.addRow(newRow);
         jt_inventario.setModel(model);
-
+        
         tf_cantidad.setText("");
         tf_codigo.setText("");
         tf_nombreBebida.setText("");
@@ -480,7 +485,7 @@ public class PrincipalLab extends javax.swing.JFrame {
         cb_coloranteVerde.setSelected(false);
         cb_coloranteBlanco.setSelected(false);
         cb_coloranteRojo.setSelected(false);
-
+        
 
     }//GEN-LAST:event_jButton1MouseClicked
 
@@ -514,19 +519,19 @@ public class PrincipalLab extends javax.swing.JFrame {
                 String newMarca = JOptionPane.showInputDialog("Ingrese el Nuevo Nombre de la Marca:");
                 mo.setValueAt(newMarca, jt_inventario.getSelectedRow(), 1);
                 jt_inventario.setModel(mo);
-
+                
             }
             if (op == 3) {
                 String newBebida = JOptionPane.showInputDialog("Ingrese el Nuevo Nombre de la Bebida:");
                 mo.setValueAt(newBebida, jt_inventario.getSelectedRow(), 2);
                 jt_inventario.setModel(mo);
-
+                
             }
             if (op == 4) {
                 double newOz = Double.parseDouble(JOptionPane.showInputDialog("Ingrese la Nueva Cantidad de OZ de Azucar:"));
                 mo.setValueAt(newOz, jt_inventario.getSelectedRow(), 3);
                 jt_inventario.setModel(mo);
-
+                
             }
             if (op == 5) {
                 double newPorcentaje = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el Nuevo Porcentaje de Alcohol:"));
@@ -537,20 +542,19 @@ public class PrincipalLab extends javax.swing.JFrame {
                 String newNacio = JOptionPane.showInputDialog("Ingrese Si es Nacional o No Nacional:");
                 mo.setValueAt(newNacio, jt_inventario.getSelectedRow(), 5);
                 jt_inventario.setModel(mo);
-
+                
             }
             if (op == 7) {
                 int newLote = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Nuevo Numero de Lote:"));
                 mo.setValueAt(newLote, jt_inventario.getSelectedRow(), 6);
                 jt_inventario.setModel(mo);
-
+                
             }
             if (op == 8) {
                 String newColorante = JOptionPane.showInputDialog("Ingrese el Nuevo Colorante:");
                 mo.setValueAt(newColorante, jt_inventario.getSelectedRow(), 7);
                 jt_inventario.setModel(mo);
                 
-
             }
             if (op == 9) {
                 double newPrecio = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el Nuevo Precio:"));
@@ -560,11 +564,19 @@ public class PrincipalLab extends javax.swing.JFrame {
             if (op == 10) {
                 int newCant = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la Nueva Cantidad:"));
                 mo.setValueAt(newCant, jt_inventario.getSelectedRow(), 9);
-
+                
             }
-
+            
         }
     }//GEN-LAST:event_jm_modificarActionPerformed
+
+    private void jm_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jm_eliminarActionPerformed
+        DefaultTableModel model1 = (DefaultTableModel) jt_inventario.getModel();
+        if (jt_inventario.getSelectedRow() >= 0) {
+            model1.removeRow(jt_inventario.getSelectedRow());
+            jt_inventario.setModel(model1);
+        }
+    }//GEN-LAST:event_jm_eliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -577,7 +589,7 @@ public class PrincipalLab extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -643,5 +655,5 @@ public class PrincipalLab extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     ArrayList<Bebida> lista_bebidas = new ArrayList();
     Bebida bebida_actual;
-
+    
 }
