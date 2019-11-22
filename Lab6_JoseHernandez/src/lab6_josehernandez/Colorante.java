@@ -44,7 +44,7 @@ public class Colorante {
 
     @Override
     public String toString() {
-        return "Colorante{" + "colorante=" + colorante + '}';
+        return colorante;
     }
 
 }

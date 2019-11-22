@@ -27,12 +27,18 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jTabbedPane1" min="-2" pref="860" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="181" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jTabbedPane1" min="-2" pref="599" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="44" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -92,48 +98,57 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="tf_numLote" min="-2" pref="158" max="-2" attributes="0"/>
+                                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="dc_fechaVencimiento" min="-2" pref="102" max="-2" attributes="0"/>
+                                              <Component id="tf_numLote" min="-2" pref="158" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="jCheckBox2" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jCheckBox3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jCheckBox4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="tf_precio" min="-2" pref="133" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="jCheckBox5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="tf_cantidad" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="dc_fechaVencimiento" min="-2" pref="102" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="cb_coloranteRojo" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="cb_coloranteAzul" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="cb_coloranteVerde" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="cb_coloranteAmarillo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="tf_precio" min="-2" pref="133" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Component id="cb_coloranteBlanco" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="tf_cantidad" max="32767" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
                                               </Group>
                                           </Group>
                                       </Group>
+                                      <EmptySpace min="0" pref="270" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="196" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -172,7 +187,7 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cb_coloranteAzul" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -185,9 +200,9 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cb_coloranteRojo" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jCheckBox3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cb_coloranteVerde" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -200,9 +215,9 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jCheckBox4" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cb_coloranteAmarillo" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jCheckBox5" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cb_coloranteBlanco" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
@@ -242,6 +257,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="rb_nacional" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="rb_noNacional" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   </Group>
@@ -332,27 +348,27 @@
             </Component>
             <Component class="javax.swing.JTextField" name="tf_numLote">
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+            <Component class="javax.swing.JCheckBox" name="cb_coloranteAzul">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Azul-4"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox2">
+            <Component class="javax.swing.JCheckBox" name="cb_coloranteRojo">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Rojo-69"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox3">
+            <Component class="javax.swing.JCheckBox" name="cb_coloranteVerde">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Verde-420"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox4">
+            <Component class="javax.swing.JCheckBox" name="cb_coloranteAmarillo">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Amarillo-77"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox5">
+            <Component class="javax.swing.JCheckBox" name="cb_coloranteBlanco">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Blanco-07"/>
               </Properties>
@@ -362,6 +378,14 @@
             <Component class="javax.swing.JTextField" name="tf_cantidad">
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="dc_fechaVencimiento">
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Agregar Al Inventario"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -377,19 +401,19 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="86" max="32767" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="654" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="804" max="-2" attributes="0"/>
+                      <EmptySpace pref="41" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="204" max="-2" attributes="0"/>
-                      <EmptySpace pref="158" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="465" max="-2" attributes="0"/>
+                      <EmptySpace pref="39" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -405,11 +429,18 @@
                 <Component class="javax.swing.JTable" name="jt_inventario">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="4" rowCount="0">
-                        <Column editable="false" title="Title 1" type="java.lang.Object"/>
-                        <Column editable="false" title="Title 2" type="java.lang.Object"/>
-                        <Column editable="false" title="Title 3" type="java.lang.Object"/>
-                        <Column editable="false" title="Title 4" type="java.lang.Object"/>
+                      <Table columnCount="11" rowCount="0">
+                        <Column editable="false" title="Codigo" type="java.lang.String"/>
+                        <Column editable="false" title="Nombre de la Marca" type="java.lang.String"/>
+                        <Column editable="false" title="Nombre de la Bebida" type="java.lang.String"/>
+                        <Column editable="false" title="OZ Azucar" type="java.lang.Double"/>
+                        <Column editable="false" title="% de Alcohol" type="java.lang.Double"/>
+                        <Column editable="false" title="Nacional/No Nacional" type="java.lang.String"/>
+                        <Column editable="false" title="N&#xb0; de Lote" type="java.lang.Integer"/>
+                        <Column editable="false" title="Colorantes" type="java.lang.Object"/>
+                        <Column editable="false" title="Precio" type="java.lang.Double"/>
+                        <Column editable="false" title="Cantidad" type="java.lang.Integer"/>
+                        <Column editable="false" title="Fecha de Vencimiento" type="java.lang.Object"/>
                       </Table>
                     </Property>
                   </Properties>
@@ -430,12 +461,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="781" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="855" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="459" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="571" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -452,12 +483,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="781" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="855" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="459" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="571" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -474,12 +505,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="781" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="855" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="459" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="571" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
