@@ -67,6 +67,10 @@ public class PrincipalLab extends javax.swing.JFrame {
     private void initComponents() {
 
         bg_productoNacional = new javax.swing.ButtonGroup();
+        pm_crud = new javax.swing.JPopupMenu();
+        jm_modificar = new javax.swing.JMenuItem();
+        jm_eliminar = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -100,9 +104,20 @@ public class PrincipalLab extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jt_inventario = new javax.swing.JTable();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
+
+        jm_modificar.setText("Modificar");
+        jm_modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jm_modificarActionPerformed(evt);
+            }
+        });
+        pm_crud.add(jm_modificar);
+
+        jm_eliminar.setText("Eliminar");
+        pm_crud.add(jm_eliminar);
+
+        jMenuItem3.setText("jMenuItem3");
+        pm_crud.add(jMenuItem3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -316,7 +331,7 @@ public class PrincipalLab extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false, false, false, false, false
@@ -328,6 +343,11 @@ public class PrincipalLab extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        jt_inventario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_inventarioMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(jt_inventario);
@@ -350,45 +370,6 @@ public class PrincipalLab extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Inventario", jPanel2);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 855, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 571, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("tab3", jPanel3);
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 855, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 571, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("tab4", jPanel4);
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 855, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 571, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("tab5", jPanel5);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -416,7 +397,7 @@ public class PrincipalLab extends javax.swing.JFrame {
         double ozAzucar = Integer.parseInt(tf_ozAzucar.getText());
         double porcentaje_alcohol = Double.parseDouble(tf_porcentajeAlcohol.getText());
         String nacio = "";
-        Colorante c1 = new Colorante(), c2 = new Colorante(), c3 = new Colorante(), c4 = new Colorante(), c5 = new Colorante();
+        Colorante c1 = new Colorante(""), c2 = new Colorante(""), c3 = new Colorante(""), c4 = new Colorante(""), c5 = new Colorante("");
         if (rb_nacional.isSelected()) {
             nacio = "Nacional";
         } else if (rb_noNacional.isSelected()) {
@@ -450,34 +431,30 @@ public class PrincipalLab extends javax.swing.JFrame {
 
                 lista_bebidas.add(new Bebida(codigo, nomMarca, nomBebida, ozAzucar,
                         porcentaje_alcohol, nacio, numLote, precio, cantidad, fecha_ven));
-                System.out.println(lista_bebidas.size());
+
                 bebida_actual = lista_bebidas.get(lista_bebidas.size() - 1);
 
                 break;
             }
         }
-        if (c1 != null) {
-            bebida_actual.getColorantes().add(c1);
-        }
-        if (c2 != null) {
-            bebida_actual.getColorantes().add(c2);
-        }
-        if (c3 != null) {
-            bebida_actual.getColorantes().add(c3);
-        }
 
-        if (c4 != null) {
-            bebida_actual.getColorantes().add(c4);
-        }
-        if (c5 != null) {
-            bebida_actual.getColorantes().add(c5);
-        }
+        bebida_actual.getColorantes().add(c1);
+
+        bebida_actual.getColorantes().add(c2);
+
+        bebida_actual.getColorantes().add(c3);
+
+        bebida_actual.getColorantes().add(c4);
+
+        bebida_actual.getColorantes().add(c5);
 
         String colorantes = "";
+
         for (int i = 0; i < bebida_actual.getColorantes().size(); i++) {
-
-            colorantes += bebida_actual.getColorantes().get(i) + "\n";
-
+            System.out.println("dentro");
+            if (bebida_actual.getColorantes().get(i) != null) {
+                colorantes += "" + bebida_actual.getColorantes().get(i) + "\n";
+            }
         }
 
         Object[] newRow = {codigo, nomMarca, nomBebida, ozAzucar,
@@ -506,6 +483,88 @@ public class PrincipalLab extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jt_inventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_inventarioMouseClicked
+        if (evt.isMetaDown()) {
+            if (jt_inventario.getSelectedRow() >= 0) {
+                pm_crud.show(evt.getComponent(), evt.getX(), evt.getY());
+            }
+        }
+    }//GEN-LAST:event_jt_inventarioMouseClicked
+
+    private void jm_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jm_modificarActionPerformed
+        DefaultTableModel mo = (DefaultTableModel) jt_inventario.getModel();
+        if (jt_inventario.getSelectedRow() >= 0) {
+            int op = Integer.parseInt(JOptionPane.showInputDialog("1.Modificar Codigo\n"
+                    + "2.Modificar Nombre de la Marca\n"
+                    + "3.Modificar Nombre de la Bebida\n"
+                    + "4.Modificar el Numero de OZ de Azucar\n"
+                    + "5.Modificar el % de Alcohol\n"
+                    + "6.Modificar Nacional/No Nacional\n"
+                    + "7.Modificar N° de Lote\n"
+                    + "8.Modificar Colorantes\n"
+                    + "9.Modificar Precio\n"
+                    + "10.Modificar Cantidad\n"));
+            if (op == 1) {
+                String newCodigo = JOptionPane.showInputDialog("Ingrese el Nuevo Codigo");
+                mo.setValueAt(newCodigo, jt_inventario.getSelectedRow(), 0);
+                jt_inventario.setModel(mo);
+            }
+            if (op == 2) {
+                String newMarca = JOptionPane.showInputDialog("Ingrese el Nuevo Nombre de la Marca:");
+                mo.setValueAt(newMarca, jt_inventario.getSelectedRow(), 1);
+                jt_inventario.setModel(mo);
+
+            }
+            if (op == 3) {
+                String newBebida = JOptionPane.showInputDialog("Ingrese el Nuevo Nombre de la Bebida:");
+                mo.setValueAt(newBebida, jt_inventario.getSelectedRow(), 2);
+                jt_inventario.setModel(mo);
+
+            }
+            if (op == 4) {
+                double newOz = Double.parseDouble(JOptionPane.showInputDialog("Ingrese la Nueva Cantidad de OZ de Azucar:"));
+                mo.setValueAt(newOz, jt_inventario.getSelectedRow(), 3);
+                jt_inventario.setModel(mo);
+
+            }
+            if (op == 5) {
+                double newPorcentaje = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el Nuevo Porcentaje de Alcohol:"));
+                mo.setValueAt(newPorcentaje, jt_inventario.getSelectedRow(), 4);
+                jt_inventario.setModel(mo);
+            }
+            if (op == 6) {
+                String newNacio = JOptionPane.showInputDialog("Ingrese Si es Nacional o No Nacional:");
+                mo.setValueAt(newNacio, jt_inventario.getSelectedRow(), 5);
+                jt_inventario.setModel(mo);
+
+            }
+            if (op == 7) {
+                int newLote = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Nuevo Numero de Lote:"));
+                mo.setValueAt(newLote, jt_inventario.getSelectedRow(), 6);
+                jt_inventario.setModel(mo);
+
+            }
+            if (op == 8) {
+                String newColorante = JOptionPane.showInputDialog("Ingrese el Nuevo Colorante:");
+                mo.setValueAt(newColorante, jt_inventario.getSelectedRow(), 7);
+                jt_inventario.setModel(mo);
+                
+
+            }
+            if (op == 9) {
+                double newPrecio = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el Nuevo Precio:"));
+                mo.setValueAt(newPrecio, jt_inventario.getSelectedRow(), 8);
+                jt_inventario.setModel(mo);
+            }
+            if (op == 10) {
+                int newCant = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la Nueva Cantidad:"));
+                mo.setValueAt(newCant, jt_inventario.getSelectedRow(), 9);
+
+            }
+
+        }
+    }//GEN-LAST:event_jm_modificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -562,14 +621,15 @@ public class PrincipalLab extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JMenuItem jm_eliminar;
+    private javax.swing.JMenuItem jm_modificar;
     private javax.swing.JTable jt_inventario;
+    private javax.swing.JPopupMenu pm_crud;
     private javax.swing.JRadioButton rb_nacional;
     private javax.swing.JRadioButton rb_noNacional;
     private javax.swing.JTextField tf_cantidad;
