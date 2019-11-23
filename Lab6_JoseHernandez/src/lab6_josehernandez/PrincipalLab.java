@@ -755,6 +755,13 @@ public class PrincipalLab extends javax.swing.JFrame {
             double precio = lista_bebidas.get(index).getPrecio();
             Date fech = lista_bebidas.get(index).getFecha_vencimiento();
             temp.add(new Bebida(code, nombreM, nombreB, azucar, porcentaje, nacion, lote, precio, cant, fech));
+            Fact f = new Fact("./factura.txt");
+            f.setTemp(temp);
+            try {
+                f.escribirFact();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
 
         }
     }//GEN-LAST:event_jm_cantActionPerformed

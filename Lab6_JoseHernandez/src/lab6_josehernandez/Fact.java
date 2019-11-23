@@ -24,12 +24,12 @@ public class Fact {
         archivo = new File(path);
     }
 
-    public ArrayList<Bebida> getBebidas() {
-        return bebidas;
+    public ArrayList<Bebida> getTemp() {
+        return temp;
     }
 
-    public void setBebidas(ArrayList<Bebida> bebidas) {
-        this.bebidas = bebidas;
+    public void setTemp(ArrayList<Bebida> temp) {
+        this.temp = temp;
     }
 
     public File getArchivo() {
@@ -39,8 +39,6 @@ public class Fact {
     public void setArchivo(File archivo) {
         this.archivo = archivo;
     }
-    
-    
 
     public void escribirFact() throws IOException {
         FileWriter fw = null;
@@ -48,10 +46,30 @@ public class Fact {
         try {
             fw = new FileWriter(archivo, false);
             bw = new BufferedWriter(fw);
-            for (Bebida b : bebidas) {
+            bw.write("            Supermercado el Barrio");
+            bw.newLine();
+            bw.write("Factura#              ");
+            bw.newLine();
+            bw.write("Produc.                    Cant.            Precio");
+            bw.newLine();
+            double total = 0;
+            for (Bebida t : temp) {
+
+                bw.write(t.getNombre_bebida() + "                    ");
+                bw.write(t.getCantidad() + "            ");
+                bw.write("" + t.getPrecio());
+                bw.newLine();
+                total += t.getCantidad() * t.getPrecio();
 
             }
+            bw.write("                                                        Total:");
+            bw.newLine();
+            bw.write("                                                         L." + total);
+            bw.flush();
         } catch (Exception e) {
         }
+
+        bw.close();
+        fw.close();
     }
 }
