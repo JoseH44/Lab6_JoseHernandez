@@ -26,7 +26,6 @@ public class PrincipalLab extends javax.swing.JFrame {
         initComponents();
         AdministradorInventario admin = new AdministradorInventario("./inventario.txt");
         admin.cargarArchivo();
-        
 
         this.setLocationRelativeTo(null);
         lista_bebidas.add(new Bebida("rt1", "Patito", "7Down", 45, 10, "Nacional", 200192, 20, 100, new Date()));
@@ -58,6 +57,7 @@ public class PrincipalLab extends javax.swing.JFrame {
                 lista_bebidas.get(i).getFecha_vencimiento()
             };
             m.addRow(newRow1);
+            jt_inventarioFact.setModel(m);
             jt_inventario.setModel(m);
         }
 
@@ -76,6 +76,8 @@ public class PrincipalLab extends javax.swing.JFrame {
         pm_crud = new javax.swing.JPopupMenu();
         jm_modificar = new javax.swing.JMenuItem();
         jm_eliminar = new javax.swing.JMenuItem();
+        pm_facturacion = new javax.swing.JPopupMenu();
+        jm_cant = new javax.swing.JMenuItem();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -109,6 +111,9 @@ public class PrincipalLab extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jt_inventario = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jt_inventarioFact = new javax.swing.JTable();
 
         jm_modificar.setText("Modificar");
         jm_modificar.addActionListener(new java.awt.event.ActionListener() {
@@ -125,6 +130,14 @@ public class PrincipalLab extends javax.swing.JFrame {
             }
         });
         pm_crud.add(jm_eliminar);
+
+        jm_cant.setText("jMenuItem1");
+        jm_cant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jm_cantActionPerformed(evt);
+            }
+        });
+        pm_facturacion.add(jm_cant);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -242,7 +255,7 @@ public class PrincipalLab extends javax.swing.JFrame {
                                                             .addComponent(jLabel10)
                                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                             .addComponent(tf_cantidad))))))
-                                        .addGap(0, 270, Short.MAX_VALUE))))
+                                        .addGap(0, 726, Short.MAX_VALUE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton1)
@@ -360,26 +373,71 @@ public class PrincipalLab extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 804, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1291, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 39, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Inventario", jPanel2);
+
+        jt_inventarioFact.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Codigo", "Nombre de la Marca", "Nombre de la Bebida", "OZ Azucar", "% de Alcohol", "Nacional/No Nacional", "N° de Lote", "Colorantes", "Precio", "Cantidad", "Fecha de Vencimiento"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jt_inventarioFact.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_inventarioFactMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jt_inventarioFact);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1291, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 39, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Cotizacion", jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 181, Short.MAX_VALUE))
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -464,6 +522,7 @@ public class PrincipalLab extends javax.swing.JFrame {
         };
 
         model.addRow(newRow);
+        jt_inventarioFact.setModel(model);
         jt_inventario.setModel(model);
 
         tf_cantidad.setText("");
@@ -512,10 +571,21 @@ public class PrincipalLab extends javax.swing.JFrame {
                     + "10.Modificar Cantidad\n"));
             if (op == 1) {
                 String newCodigo = JOptionPane.showInputDialog("Ingrese el Nuevo Codigo");
-                int index = jt_inventario.getSelectedRow();
-                lista_bebidas.get(index).setCodigo(newCodigo);
+                for (int i = 0; i < lista_bebidas.size(); i++) {
+                    if (lista_bebidas.get(i).getCodigo().equals(newCodigo)) {
+                        JOptionPane.showMessageDialog(this, "El codigo ya lo tiene una bebida");
+                        break;
+                    } else {
+
+                        int index = jt_inventario.getSelectedRow();
+                        lista_bebidas.get(index).setCodigo(newCodigo);
+                        break;
+
+                    }
+                }
 
                 mo.setValueAt(newCodigo, jt_inventario.getSelectedRow(), 0);
+                jt_inventarioFact.setModel(mo);
                 jt_inventario.setModel(mo);
 
                 try {
@@ -529,8 +599,9 @@ public class PrincipalLab extends javax.swing.JFrame {
                 String newMarca = JOptionPane.showInputDialog("Ingrese el Nuevo Nombre de la Marca:");
                 mo.setValueAt(newMarca, jt_inventario.getSelectedRow(), 1);
                 jt_inventario.setModel(mo);
+                jt_inventarioFact.setModel(mo);
                 int index = jt_inventario.getSelectedRow();
-                
+
                 lista_bebidas.get(index).setNombre_marca(newMarca);
                 try {
                     ai.escribirArchivo();
@@ -543,6 +614,7 @@ public class PrincipalLab extends javax.swing.JFrame {
                 String newBebida = JOptionPane.showInputDialog("Ingrese el Nuevo Nombre de la Bebida:");
                 mo.setValueAt(newBebida, jt_inventario.getSelectedRow(), 2);
                 jt_inventario.setModel(mo);
+                jt_inventarioFact.setModel(mo);
                 int index = jt_inventario.getSelectedRow();
                 lista_bebidas.get(index).setNombre_bebida(newBebida);
                 try {
@@ -556,6 +628,7 @@ public class PrincipalLab extends javax.swing.JFrame {
                 double newOz = Double.parseDouble(JOptionPane.showInputDialog("Ingrese la Nueva Cantidad de OZ de Azucar:"));
                 mo.setValueAt(newOz, jt_inventario.getSelectedRow(), 3);
                 jt_inventario.setModel(mo);
+                jt_inventarioFact.setModel(mo);
                 int index = jt_inventario.getSelectedRow();
                 lista_bebidas.get(index).setCant_azucar(newOz);
                 try {
@@ -569,6 +642,7 @@ public class PrincipalLab extends javax.swing.JFrame {
                 double newPorcentaje = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el Nuevo Porcentaje de Alcohol:"));
                 mo.setValueAt(newPorcentaje, jt_inventario.getSelectedRow(), 4);
                 jt_inventario.setModel(mo);
+                jt_inventarioFact.setModel(mo);
                 int index = jt_inventario.getSelectedRow();
                 lista_bebidas.get(index).setPorcentaje_alcohol(newPorcentaje);
                 try {
@@ -581,6 +655,7 @@ public class PrincipalLab extends javax.swing.JFrame {
                 String newNacio = JOptionPane.showInputDialog("Ingrese Si es Nacional o No Nacional:");
                 mo.setValueAt(newNacio, jt_inventario.getSelectedRow(), 5);
                 jt_inventario.setModel(mo);
+                jt_inventarioFact.setModel(mo);
                 int index = jt_inventario.getSelectedRow();
                 lista_bebidas.get(index).setNacional(newNacio);
                 try {
@@ -593,6 +668,7 @@ public class PrincipalLab extends javax.swing.JFrame {
                 int newLote = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Nuevo Numero de Lote:"));
                 mo.setValueAt(newLote, jt_inventario.getSelectedRow(), 6);
                 jt_inventario.setModel(mo);
+                jt_inventarioFact.setModel(mo);
                 int index = jt_inventario.getSelectedRow();
                 lista_bebidas.get(index).setNum_lote(newLote);
                 try {
@@ -600,13 +676,13 @@ public class PrincipalLab extends javax.swing.JFrame {
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
-                
 
             }
             if (op == 8) {
                 String newColorante = JOptionPane.showInputDialog("Ingrese el Nuevo Colorante:");
                 mo.setValueAt(newColorante, jt_inventario.getSelectedRow(), 7);
                 jt_inventario.setModel(mo);
+                jt_inventarioFact.setModel(mo);
                 int index = jt_inventario.getSelectedRow();
                 lista_bebidas.get(index).getColorantes().add(new Colorante(newColorante));
                 try {
@@ -620,6 +696,7 @@ public class PrincipalLab extends javax.swing.JFrame {
                 double newPrecio = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el Nuevo Precio:"));
                 mo.setValueAt(newPrecio, jt_inventario.getSelectedRow(), 8);
                 jt_inventario.setModel(mo);
+                jt_inventarioFact.setModel(mo);
                 int index = jt_inventario.getSelectedRow();
                 lista_bebidas.get(index).setPrecio(newPrecio);
                 try {
@@ -633,6 +710,8 @@ public class PrincipalLab extends javax.swing.JFrame {
                 mo.setValueAt(newCant, jt_inventario.getSelectedRow(), 9);
                 int index = jt_inventario.getSelectedRow();
                 lista_bebidas.get(index).setCantidad(index);
+                jt_inventario.setModel(mo);
+                jt_inventarioFact.setModel(mo);
                 try {
                     ai.escribirArchivo();
                 } catch (IOException ex) {
@@ -649,8 +728,36 @@ public class PrincipalLab extends javax.swing.JFrame {
         if (jt_inventario.getSelectedRow() >= 0) {
             model1.removeRow(jt_inventario.getSelectedRow());
             jt_inventario.setModel(model1);
+            jt_inventarioFact.setModel(model1);
         }
     }//GEN-LAST:event_jm_eliminarActionPerformed
+
+    private void jt_inventarioFactMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_inventarioFactMouseClicked
+        if (evt.isMetaDown()) {
+            if (jt_inventarioFact.getSelectedRow() >= 0) {
+                pm_facturacion.show(evt.getComponent(), evt.getX(), evt.getY());
+            }
+        }
+    }//GEN-LAST:event_jt_inventarioFactMouseClicked
+
+    private void jm_cantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jm_cantActionPerformed
+        ArrayList<Bebida> temp = new ArrayList();
+        if (jt_inventarioFact.getSelectedRow() >= 0) {
+            int cant = Integer.parseInt(JOptionPane.showInputDialog("Ingrese La Cantidad del Producto:"));
+            int index = jt_inventarioFact.getSelectedRow();
+            String code = lista_bebidas.get(index).getCodigo();
+            String nombreM = lista_bebidas.get(index).getNombre_marca();
+            String nombreB = lista_bebidas.get(index).getNombre_bebida();
+            double azucar = lista_bebidas.get(index).getCant_azucar();
+            double porcentaje = lista_bebidas.get(index).getPorcentaje_alcohol();
+            String nacion = lista_bebidas.get(index).getNacional();
+            int lote = lista_bebidas.get(index).getNum_lote();
+            double precio = lista_bebidas.get(index).getPrecio();
+            Date fech = lista_bebidas.get(index).getFecha_vencimiento();
+            temp.add(new Bebida(code, nombreM, nombreB, azucar, porcentaje, nacion, lote, precio, cant, fech));
+
+        }
+    }//GEN-LAST:event_jm_cantActionPerformed
 
     /**
      * @param args the command line arguments
@@ -709,12 +816,17 @@ public class PrincipalLab extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JMenuItem jm_cant;
     private javax.swing.JMenuItem jm_eliminar;
     private javax.swing.JMenuItem jm_modificar;
     private javax.swing.JTable jt_inventario;
+    private javax.swing.JTable jt_inventarioFact;
     private javax.swing.JPopupMenu pm_crud;
+    private javax.swing.JPopupMenu pm_facturacion;
     private javax.swing.JRadioButton rb_nacional;
     private javax.swing.JRadioButton rb_noNacional;
     private javax.swing.JTextField tf_cantidad;

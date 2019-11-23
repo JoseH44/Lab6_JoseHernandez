@@ -19,35 +19,35 @@ import java.util.Scanner;
  * @author jrdjh
  */
 public class AdministradorInventario {
-    
+
     private ArrayList<Bebida> bebidas = new ArrayList();
     private File archivo = null;
-    
+
     public AdministradorInventario(String path) {
         archivo = new File(path);
     }
-    
+
     public ArrayList<Bebida> getBebidas() {
         return bebidas;
     }
-    
+
     public void setBebidas(ArrayList<Bebida> bebidas) {
         this.bebidas = bebidas;
     }
-    
+
     public File getArchivo() {
         return archivo;
     }
-    
+
     public void setArchivo(File archivo) {
         this.archivo = archivo;
     }
-    
+
     @Override
     public String toString() {
         return "AdministradorInventario{" + "bebidas=" + bebidas + ", archivo=" + archivo + '}';
     }
-    
+
     public void escribirArchivo() throws IOException {
         FileWriter fw = null;
         BufferedWriter bw = null;
@@ -62,19 +62,19 @@ public class AdministradorInventario {
                 bw.write(b.getPorcentaje_alcohol() + ";");
                 bw.write(b.getNacional() + ";");
                 bw.write(b.getNum_lote() + ";");
-                
+
                 SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
                 String fech = df.format(b.getFecha_vencimiento());
-                
+
                 for (int i = 0; i < b.getColorantes().size(); i++) {
                     bw.write(b.getColorantes().get(i) + ",");
-                    
+
                 }
                 bw.write(";");
                 bw.write(b.getPrecio() + ";");
                 bw.write(b.getCantidad() + ";");
                 bw.write(fech + ";");
-                
+
                 bw.newLine();
             }
             bw.flush();
@@ -83,9 +83,9 @@ public class AdministradorInventario {
         }
         bw.close();
         fw.close();
-        
+
     }
-    
+
     public void cargarArchivo() {
         Scanner sc = null;
         bebidas = new ArrayList();
@@ -94,9 +94,9 @@ public class AdministradorInventario {
                 sc = new Scanner(archivo);
                 sc.useDelimiter(";");
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                
+
                 while (sc.hasNext()) {
-                    
+
                     Bebida b = new Bebida(sc.next(), sc.next(),
                             sc.next(), sc.nextDouble(), sc.nextDouble(), sc.next(), sc.nextInt(), sc.nextDouble(), sc.nextInt(),
                             sdf.parse(sc.next()));
@@ -107,12 +107,14 @@ public class AdministradorInventario {
                         }
                     }
                     bebidas.add(b);
-                    
+
                 }
-                
+
             } catch (Exception e) {
             }
         }
-        
+
     }
+
+    
 }

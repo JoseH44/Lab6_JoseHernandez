@@ -1,0 +1,15 @@
+fd;Patito;7Down;45.0;10.0;Nacional;200192;Azul-4,Rojo-69,;20.0;100;22/11/2019;
+rt2;Patos;Koka;35.0;0.0;No Nacional;205192;Azul-4,Rojo-69,;20.0;100;22/11/2019;
+rt3;Dell;Comp;50.0;50.0;Nacional;100192;Azul-4,Rojo-69,;70.0;100;22/11/2019;
+rt4;HP;Tarjeta;45.0;10.0;Nacional;800192;Azul-4,Rojo-69,;20.0;100;22/11/2019;
+rt5;Coca;7UP;45.0;10.0;Nacional;880192;Azul-4,Rojo-69,;20.0;100;22/11/2019;
+rt6;Coca;Coca-Cola;45.0;10.0;Nacional;900192;Azul-4,Rojo-69,;20.0;100;22/11/2019;
+rt7;Casa;Pepsi;45.0;10.0;Nacional;300192;Azul-4,Rojo-69,;20.0;100;22/11/2019;
+rt8;Hogar;Familiar;45.0;10.0;Nacional;500192;Azul-4,Rojo-69,;20.0;100;22/11/2019;
+rt9;Templo;Down;45.0;10.0;Nacional;1100192;Azul-4,Rojo-69,;20.0;100;22/11/2019;
+rt10;Tempestad;Bombastico;45.0;10.0;Nacional;5600192;Azul-4,Rojo-69,;20.0;100;22/11/2019;
+rt11;Tormenta;Huracan;45.0;10.0;Nacional;8700192;Azul-4,Rojo-69,;20.0;100;22/11/2019;
+rt12;Natural;Manzanares;45.0;10.0;Nacional;5400192;Azul-4,Rojo-69,;20.0;100;22/11/2019;
+rt13;RX;Xtreme;45.0;10.0;Nacional;3300192;Azul-4,Rojo-69,;20.0;100;22/11/2019;
+rt14;Desma;LocuraFresa;45.0;10.0;Nacional;1100192;Azul-4,Rojo-69,;20.0;100;22/11/2019;
+rt15;Patio;24/7;45.0;10.0;Nacional;208192;Azul-4,Rojo-69,;20.0;100;22/11/2019;
