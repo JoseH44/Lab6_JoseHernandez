@@ -757,6 +757,7 @@ public class PrincipalLab extends javax.swing.JFrame {
             temp.add(new Bebida(code, nombreM, nombreB, azucar, porcentaje, nacion, lote, precio, cant, fech));
             Fact f = new Fact("./factura.txt");
             f.setTemp(temp);
+            //genera el archivo de un solo.
             try {
                 f.escribirFact();
             } catch (IOException ex) {
